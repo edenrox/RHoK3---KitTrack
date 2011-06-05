@@ -81,7 +81,7 @@ def sms(request):
 	
 	# Get the message body
 	#message = request.POST['Body']
-	message = "kit 7 where"
+	message = "kit 7 arrived"
 	
 	# parse what command
 	parts = message.strip().split(' ')
