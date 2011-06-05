@@ -95,7 +95,9 @@ def sms(request):
 			# ok, what packages are in trasit
 			location = Location.objects.get(pk=tijuana_id)
 			kits = Kit.objects.get(destination=location.pk)
-			response_text = u'Kits on the way to %s:\n' % (location) #, ','.join(kits))
+			response_text = u'Kits on the way to %s:\n' % (location)
+			for(kit in kits):
+				response_text += u'%s, ' % (kit)
 		elif (len(parts)):
 			# load the kit
 			kit_id = parts[1]
