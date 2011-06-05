@@ -15,7 +15,7 @@ def kit_ship(request):
 		# add the kit history for the first one
 		start_location = Location.objects.get(pk = request.POST['start_location'])
 		start_state = KitState.objects.get(pk = 1)
-		kit_history = KitHistory.objects.create(kit = the_kit, created = request.POST['date_shipped'], location = start_location, state = kit_state)
+		kit_history = KitHistory.objects.create(kit = the_kit, created = request.POST['date_shipped'], location = start_location, state = start_state)
 		kit_history.save()
 		
 		# redirect to the kit details
