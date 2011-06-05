@@ -18,9 +18,13 @@ def kit_ship(request):
 	# load the KitTypes and Locations
 	kit_types = KitType.objects.order_by('name')
 	locations = Location.objects.order_by('name')
+	
+	# Setup the dictionary and CSRF Key
+	c = {'kit_types': kit_types, 'locations': locations}
+	c.update(csrf(request))
 		
 	# render the template
-	return render_to_response('kit-ship.html', {'kit_types': kit_types, 'locations': locations})
+	return render_to_response('kit-ship.html', c)
 	
 def kit_track(request):
 	
