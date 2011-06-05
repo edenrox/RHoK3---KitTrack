@@ -5,8 +5,8 @@ class KitType(models.Model):
 
 class Location(models.Model):
 	name = models.CharField(max_length=255)
-	lat = models.DoubleField()
-	lng = models.DoubleField()
+	lat = models.FloatField()
+	lng = models.FloatField()
 
 class Kit(models.Model):
 	kit_type = models.ForeignKey(KitType)
@@ -30,7 +30,7 @@ class CartonType(models.Model):
 class CartonContent(models.Model):
 	type = models.ForeignKey(CartonType)
 	item = models.ForeignKey(SupplyItem)
-	quantity = models.DoubleField()
+	quantity = models.FloatField()
 	
 class SupplyItem(models.Model):
 	name = models.CharField(max_length=255)
