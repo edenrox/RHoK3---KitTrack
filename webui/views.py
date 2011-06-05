@@ -110,7 +110,7 @@ def sms(request):
 			if (parts[2] == 'arrived'):
 				# ok, the kit has arrived
 				state = KitState.objects.get(pk=3)
-				kit_history = KitHistory.objects.create(kit=the_kit, location=the_kit.destination, created=datetime.today())
+				kit_history = KitHistory.objects.create(kit=the_kit, location=the_kit.destination, created=datetime.today(),state=state)
 				response_text = u'Kit %s arrived at %s' % (kit_history.created, kit_id, location)
 				
 	response = HttpResponse(mimetype='text/xml')
