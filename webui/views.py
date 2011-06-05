@@ -94,10 +94,8 @@ def sms(request):
 		if (parts[1] == 'intransit'):
 			# ok, what packages are in trasit
 			location = Location.objects.get(pk=tijuana_id)
-			kits = Kit.objects.get(destination=location.pk)
-			response_text = u'Kits on the way to %s:\n' % (location)
-			for kit in kits:
-				response_text += u'%s, ' % (kit)
+			kits = Kit.objects.filter(destination=location.pk)
+			response_text = u'Kits on the way to %s:\n%s' % (location, ', '.join(kit))
 		elif (len(parts)):
 			# load the kit
 			kit_id = parts[1]
