@@ -15,6 +15,9 @@ def kit_ship(request):
 		#kit_history = KitHistory.objects.create(kit = the_kit, created = request.POST['date_shipped'], Location.get(pk = request.POST['start_location']), state = KitState.get(pk = 1))
 		#kit_history.save()
 		
+		print the_kit.pk
+		print type(the_kit.pk)
+		
 		# redirect to the kit details
 		return redirect(u'/kit/%s/history' % (the_kit.pk)) 
 	
