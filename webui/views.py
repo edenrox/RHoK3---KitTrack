@@ -5,8 +5,8 @@ from webui.models import *
 
 def kit_ship(request):
 	
-	if (request.method == 'POST'):
-		#kit = Kit.create(
+	#if (request.method == 'POST'):
+	#kit = Kit.create(
 		
 	locations = Location.get_objects().order_by('name')
 		
