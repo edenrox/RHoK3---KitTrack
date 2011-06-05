@@ -24,7 +24,7 @@ class Location(models.Model):
 		return u'%.03f %s' % (math.fabs(self.lng), direction)
 	
 	def __unicode__(self):
-		return u'%s (%s, %s)' % (self.name, self.latStr, self.lngStr)
+		return u'%s (%s, %s)' % (self.name, self.latStr(), self.lngStr())
 
 class Kit(models.Model):
 	kit_type = models.ForeignKey(KitType)
