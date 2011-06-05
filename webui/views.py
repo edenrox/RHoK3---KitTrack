@@ -57,11 +57,16 @@ def get_kit_url(kit_id):
 def kit_progress(request, kit_id):
 	
 	if (request.method == 'POST'):
+		the_kit = Kit.objects.get(pk = kit_id)
+		location = Location.objects.get(pk = request.POST['location'])
+		state = KitState.objects.get(pk = request.POST['state'])
+		history = KitHistory.create(kit, created = request.POST['date'], location = location, state = state)
+		
 		url = get_kit_url(kit_id)
 		return redirect(url)
 	
-	locations = Location.object.order_by('name')
-	kit_states = KitState.object.order_by('ordinal')
+	locations = Location.objects.order_by('name')
+	kit_states = KitState.objects.order_by('ordinal')
 	
 	c = {'kit_id': kit_id, 'locations': locations, 'kit_states': kit_states}
 	c.update(csrf(request))
