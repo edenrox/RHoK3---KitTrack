@@ -1,5 +1,5 @@
 <h2>Track a Kit</h2>
-<form method="post" action="/kit/track">
+<form method="post" action="/kit/track">{% csrf_token %}
  <div class="input text">
   <label>Kit ID:</label>
   <input type="text" name="kit_id" />
