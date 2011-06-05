@@ -7,11 +7,12 @@ def kit_ship(request):
 	
 	if (request.method == 'POST'):
 		# create the kit
-		kit = Kit.objects.create(kit_type = request.POST['kit_type'], estimated_delivery_date = request.POST['estimated_delivery_date'], destination = request.POST['destination'])
+		kit = Kit.objects.create(request.POST)
 		kit.save()
+		print kit
 		
 		# add the kit history for the first one
-		kit_history = KitHistory.objects.create(kit = kit.pk, created = request.POST['date_shipped'], location = request.POST['start_location'], state = 1)
+		kit_history = KitHistory.objects.create(kit = kit, created = request.POST['date_shipped'], location = request.POST['start_location'], state = 1)
 		kit_history.save()
 		
 		# redirect to the kit details
