@@ -9,6 +9,7 @@ def kit_ship(request):
 	#kit = Kit.create(
 		
 	locations = Location.objects.order_by('name')
+	print locations
 		
 	return render_to_response('kit-ship.html')
 	
