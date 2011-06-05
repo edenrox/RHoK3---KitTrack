@@ -1,10 +1,14 @@
 body, table {
 	font-family: Arial;
 	font-size: 12px;
+	margin: 0;
 }
 
 h1 {
+	margin-top: 4px;
+	border-top: 8px solid #000066;
 	border-bottom: 8px solid #000066;
+	padding-left: 8px;
 }
 .menu {
 	padding: 0;
@@ -18,3 +22,12 @@ h1 {
 	border-right: 1px solid #000066;
 }
 
+.text label {
+	width: 50px;
+	float: left;
+}
+div.input {
+	padding-bottom: 4px;
+	border-bottom: 1px solid #CCCCCC;
+	padding-top: 4px;
+}
