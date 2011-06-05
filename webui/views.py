@@ -5,18 +5,20 @@ from webui.models import *
 
 def kit_ship(request):
 	
-	locations = Location.get_objects()
+	#locations = Location.get_objects()
 	
 	#if (request.method == 'POST'):
 		
 	
-	return render_to_response('kit-ship.html', )
+	return render_to_response('kit-ship.html')
 	
 def kit_track(request):
 	
 	if (request.method == 'POST'):
 		kit_id = request.POST['kit_id']
-		return redirect(u'/kit/%s/history' % (kit_id))
+		url = u'/kit/%s/history' % (kit_id)
+		print url
+		return redirect(url)
 		
 	c = {}
 	c.update(csrf(request))
