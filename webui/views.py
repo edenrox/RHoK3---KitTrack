@@ -16,7 +16,7 @@ def kit_track(request):
 	
 	if (request.method == 'POST'):
 		kit_id = request.POST['kit_id']
-		return redirect(u'/kit/%d/history' % (kit_id))
+		return redirect(u'/kit/%s/history' % (kit_id))
 		
 	c = {}
 	c.update(csrf(request))
