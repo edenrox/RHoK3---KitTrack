@@ -23,3 +23,18 @@ class KitState(models.model):
 	name = models.CharField(max_length=255)
 	ordinal = models.IntegerField()
 
+class CartonType(models.model):
+	type = models.ForeignKey(KitType)
+	name = models.CharField(max_length=255)
+
+class CartonContent(models.model):
+	type = models.ForeignKey(CartonType)
+	item = models.ForeignKey(SupplyItem)
+	quantity = models.DoubleField()
+	
+class SupplyItem(models.model):
+	name = models.CharField(max_length=255)
+	type = models.ForeignKey(SupplyItemType)
+	
+class SupplyItemType(models.model):
+	name = models.CharField(max_length=255)
