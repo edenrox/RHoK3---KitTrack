@@ -81,7 +81,7 @@ def sms(request):
 	
 	# Get the message body
 	#message = request.POST['Body']
-	message = "kit intransit"
+	message = "kit 7 where"
 	
 	# parse what command
 	parts = message.strip().split(' ')
@@ -95,7 +95,7 @@ def sms(request):
 			# ok, what packages are in trasit
 			location = Location.objects.get(pk=tijuana_id)
 			kits = Kit.objects.filter(destination=location.pk)
-			response_text = u'Kits on the way to %s:\n' % (location)
+			response_text = u'Kits on the way to %s:\nKit #s: ' % (location)
 			for kit in kits:
 				response_text += u'%s, ' % (kit)
 		elif (len(parts)):
