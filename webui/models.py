@@ -35,6 +35,9 @@ class Kit(models.Model):
 class KitState(models.Model):
 	name = models.CharField(max_length=255)
 	ordinal = models.IntegerField()
+	
+	def __unicode__(self):
+		return u'%s (%d)' % (self.name, self.ordinal)
 
 class KitHistory(models.Model):
 	kit = models.ForeignKey(Kit)
@@ -45,19 +48,25 @@ class KitHistory(models.Model):
 class CartonType(models.Model):
 	type = models.ForeignKey(KitType)
 	name = models.CharField(max_length=255)
+	
+	def __unicode__(self):
+		return u'%s' % (self.name)
 
 class SupplyItemType(models.Model):
 	name = models.CharField(max_length=255)
 	
+	def __unicode__(self):
+		return u'%s' % (self.name)
+	
 class SupplyItem(models.Model):
 	name = models.CharField(max_length=255)
 	type = models.ForeignKey(SupplyItemType)
+	
+	def __unicode__(self):
+		return u'%s' % (self.name)
 
 class CartonContent(models.Model):
 	type = models.ForeignKey(CartonType)
 	item = models.ForeignKey(SupplyItem)
 	quantity = models.FloatField()
-
-
-	
 
