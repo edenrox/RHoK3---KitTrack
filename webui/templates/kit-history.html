@@ -12,7 +12,7 @@
  <tbody>
 {% for history in kit_history %}
   <tr>
-   <td>{{ history.date }}</td><td>{{ history.state.name }}</td><td>{{ history.location }}</td>
+   <td>{{ history.created }}</td><td>{{ history.state.name }}</td><td>{{ history.location }}</td>
   </tr>
 {% endfor %}
  </tbody>
