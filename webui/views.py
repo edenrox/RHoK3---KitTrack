@@ -3,7 +3,7 @@ from django.shortcuts import *
 from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 from webui.models import *
-import datetime
+from datetime import datetime
 
 def kit_ship(request):
 	
