@@ -5,5 +5,6 @@ def kit_ship(request):
 	return HttpResponse("Hey")
 	
 def kit_track(request):
-	return render_to_response('templates/track.html');
+	return HttpResponse("Hey")
+	#return render_to_response('templates/track.html');
 		
