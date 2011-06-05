@@ -19,7 +19,7 @@ urlpatterns = patterns('',
     url(r'^kit/track', 'webui.views.kit_track'),
     url(r'^kit/usage', 'kit.usage'),
     url(r'^kit/progress', 'kit.progress'),
-    url(r'^kit/(\d)/history', 'kit.history'),
+    url(r'^kit/(\d)/history', 'webui.views.kit_history'),
     
     url(r'^location/pending', 'location.pending'),
     url(r'^location/(\d)/pending', 'location.pending_list'),
