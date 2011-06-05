@@ -36,8 +36,7 @@ def kit_track(request):
 	
 	if (request.method == 'POST'):
 		kit_id = request.POST['kit_id']
-		url = u'/kit/%s/history' % (kit_id)
-		print url
+		url = get_kit_url(kit_id)
 		return redirect(url)
 		
 	c = {}
@@ -51,10 +50,21 @@ def kit_history(request, kit_id):
 	
 	return render_to_response('kit-history.html', {'kit_id': kit_id, 'kit_history': history})
 
+
+def get_kit_url(kit_id):
+	return u'/kit/%s/history' % (kit_id)
+
 def kit_progress(request, kit_id):
+	
+	if (request.method == 'POST'):
+		url = get_kit_url(kit_id)
+		return redirect(url)
 	
 	locations = Location.object.order_by('name')
 	kit_states = KitState.object.order_by('ordinal')
 	
-	return render_to_response('kit-progress.html', {'kit_id': kit_id, 'locations': locations, 'kit_states': kit_states})
+	c = {'kit_id': kit_id, 'locations': locations, 'kit_states': kit_states}
+	c.update(csrf(request))
+	
+	return render_to_response('kit-progress.html', c)
 
