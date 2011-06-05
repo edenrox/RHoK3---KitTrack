@@ -7,7 +7,10 @@ def kit_ship(request):
 	
 	if (request.method == 'POST'):
 		# create the kit
-		the_kit = Kit(kit_type = KitType.get(request.POST['kit_type']), destination = Location.get(request.POST['destination']), estimated_delivery_date = request.POST['estimated_delivery_date'])
+		the_kit_type = KitType.get(pk = request.POST['kit_type'])
+		dest_location = Location.get(pk = request.POST['destination'])
+		
+		the_kit = Kit(kit_type = the_kit_type, destination = dest_location, estimated_delivery_date = request.POST['estimated_delivery_date'])
 		the_kit.save()
 		print the_kit
 		
