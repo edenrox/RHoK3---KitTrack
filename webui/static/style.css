@@ -22,12 +22,12 @@ h1 {
 	border-right: 1px solid #000066;
 }
 
-.text label {
+.input label {
 	width: 150px;
 	float: left;
 }
-div.input {
-	width: 300px;
+.input {
+	width: 400px;
 	padding-bottom: 4px;
 	border-bottom: 1px solid #CCCCCC;
 	padding-top: 4px;
@@ -37,8 +37,8 @@ div.submit {
 }
 
 .footer {
-	border-top: 8px solid #000066;
-	border-bottom: 8px solid #000066;
-	padding-left: 8px;
+	border-top: 4px solid #3333FF;
+	border-bottom: 4px solid #3333FF;
+	padding: 8px;
 	margin-bottom: 4px;
 }
