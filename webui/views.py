@@ -104,7 +104,7 @@ def sms(request):
 			the_kit = Kit.objects.get(pk=kit_id)
 			if (parts[2] == 'where'):
 				# ok, where is the kit
-				kit_history = KitHistory.objects.filter(kit=the_kit).order_by('-date')[0]
+				kit_history = KitHistory.objects.filter(kit=the_kit).order_by('-created')[0]
 				response_text = 'On %s, kit %s was in %s' % (kit_history.created, kit_id, kit_history.location)
 			if (parts[2] == 'arrived'):
 				# ok, the kit has arrived
