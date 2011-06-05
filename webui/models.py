@@ -2,11 +2,29 @@ from django.db import models
 
 class KitType(models.Model):
 	name = models.CharField(max_length=255)
+	
+	def __unicode__(self):
+		return u'%s' % (self.name)
 
 class Location(models.Model):
 	name = models.CharField(max_length=255)
 	lat = models.FloatField()
 	lng = models.FloatField()
+	
+	def latStr(self):
+		direction = 'N'
+		if (self.lat < 0):
+			direction = 'S'
+		return u'%.03f %s' % (math.fabs(self.lat), direction)
+	
+	def lngStr(self):
+		direction = 'W'
+		if (self.lat < 0):
+			direction = 'E'
+		return u'%.03f %s' % (math.fabs(self.lng), direction)
+	
+	def __unicode__(self):
+		return u'%s (%s, %s)' % (self.name, self.latStr, self.lngStr)
 
 class Kit(models.Model):
 	kit_type = models.ForeignKey(KitType)
