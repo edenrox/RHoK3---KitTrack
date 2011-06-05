@@ -60,7 +60,7 @@ def kit_progress(request, kit_id):
 		the_kit = Kit.objects.get(pk = kit_id)
 		location = Location.objects.get(pk = request.POST['location'])
 		state = KitState.objects.get(pk = request.POST['state'])
-		history = KitHistory.create(kit, created = request.POST['date'], location = location, state = state)
+		history = KitHistory.objects.create(kit, created = request.POST['date'], location = location, state = state)
 		
 		url = get_kit_url(kit_id)
 		return redirect(url)
