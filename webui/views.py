@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
+import django.core.context_processors import csrf
 from webui.models import *
 
 def kit_ship(request):
@@ -16,8 +17,11 @@ def kit_track(request):
 	if (request.method == 'POST'):
 		kit_id = request.POST['kit_id']
 		return redirect(u'/kit/%d/history' % (kit_id))
+		
+	c = {}
+	c.update(csrf(request))
 	
-	return render_to_response('kit-track.html')
+	return render_to_response('kit-track.html', c);
 
 def kit_history(request, kit_id):
 	
