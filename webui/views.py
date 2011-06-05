@@ -85,6 +85,7 @@ def sms(request):
 	
 	# parse what command
 	parts = message.strip().split(' ')
+	print "parts", parts
 	
 	# the response
 	response_text = ''
@@ -93,7 +94,7 @@ def sms(request):
 		if (parts[1] == 'intransit'):
 			# ok, what packages are in trasit
 			location = Location.objects.get(pk=tijuana_id)
-			kits = Kit.objects.get(destination=location)
+			kits = Kit.objects.get(destination=location.pk)
 			response_text = u'Kits on the way to %s:\n' % (location, ','.join(kits))
 		if (parts.length):
 			# load the kit
