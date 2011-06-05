@@ -74,7 +74,7 @@ def kit_progress(request, kit_id):
 	return render_to_response('kit-progress.html', c)
 
 
-@csrf_exampt
+@csrf_exempt
 def sms(request):
 	
 	message = request.POST['Body'];
