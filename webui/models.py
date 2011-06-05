@@ -29,7 +29,7 @@ class Location(models.Model):
 
 class Kit(models.Model):
 	kit_type = models.ForeignKey(KitType)
-	destintation = models.ForeignKey(Location)
+	destination = models.ForeignKey(Location)
 	estimated_delivery_date = models.DateTimeField()
 
 class KitState(models.Model):
