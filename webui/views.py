@@ -48,9 +48,10 @@ def kit_track(request):
 
 def kit_history(request, kit_id):
 	
+	kit = Kit.objects.get(pk=kit_id)
 	history = KitHistory.objects.filter(kit=kit_id)
 	
-	return render_to_response('kit-history.html', {'kit_id': kit_id, 'kit_history': history})
+	return render_to_response('kit-history.html', {'kit': kit, 'kit_history': history})
 
 
 def get_kit_url(kit_id):
@@ -90,8 +91,9 @@ def sms(request):
 	
 	# the response
 	response_text = ''
-	
-	if (parts[0] == 'kit'):
+	if (parts[0] == 'help'):
+		response_text = 'help\nkit intransit\nkit ID where\nkit ID arrived'
+	elif (parts[0] == 'kit'):
 		if (parts[1] == 'intransit'):
 			# ok, what packages are in trasit
 			location = Location.objects.get(pk=tijuana_id)

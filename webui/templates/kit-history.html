@@ -1,8 +1,11 @@
 {% block content %}
 
 {% include 'header.html' %}
-<h2>Pending Deliveries</h2>
-<p><b>Kit ID:</b> {{ kit_id }}</p>
+<h2>Kit Details</h2>
+<p>
+ <b>Kit ID:</b> {{ kit.pk }}<br/>
+ <b>Destination:</b> {{ kit.destination }}<br/>
+</p>
 <h4>History</h4>
 <table>
  <thead>
