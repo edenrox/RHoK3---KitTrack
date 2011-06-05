@@ -1,3 +1,5 @@
+{% include 'header.html' %}
+
 <h2>Update Kit Progress</h2>
 <form action="/kit/{{ kit_id }}/progress" method="post">{% csrf_token %}
  <p><b>Kit ID:</b> {{ kit_id }}</p>
@@ -25,3 +27,5 @@
   <input type="submit" value="Record" />
  </div>
 </form>
+
+{% include 'footer.html' %}

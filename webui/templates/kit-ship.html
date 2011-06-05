@@ -1,3 +1,5 @@
+{% include 'header.html' %}
+
 <h2>Ship a Kit</h2>
 <form method="post" action="/kit/ship/">{% csrf_token %}
  <div class="input select">
@@ -37,5 +39,4 @@
  </div>
 </form>
  
- 
- 
+{% include 'footer.html' %}

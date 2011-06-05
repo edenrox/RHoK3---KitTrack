@@ -1,5 +1,6 @@
 {% block content %}
 
+{% include 'header.html' %}
 <h2>Pending Deliveries</h2>
 <p><b>Kit ID:</b> {{ kit_id }}</p>
 <h4>History</h4>
@@ -38,4 +39,7 @@
   </tr>
  </tbody>
 </table>
+
+{% include 'footer.html' %}
+
 {% endblock %}
