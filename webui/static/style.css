@@ -4,6 +4,17 @@ body, table {
 }
 
 h1 {
-	border-bottom: 8px #000066;
+	border-bottom: 8px solid #000066;
+}
+.menu {
+	padding: 0;
+	margin: 4px 0;
+	height: 20px;
+	list-style-type: none;
+}
+.menu li {
+	float: left;
+	padding: 0 20px;
+	border-right: 1px solid #000066;
 }
 
