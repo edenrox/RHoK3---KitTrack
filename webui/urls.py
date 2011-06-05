@@ -14,4 +14,13 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    
+    url(r'^kit/ship', 'kit.ship'),
+    url(r'^kit/track', 'kit.track'),
+    url(r'^kit/usage', 'kit.usage'),
+    url(r'^kit/progress', 'kit.progress'),
+    url(r'^kit/(\d)/history', 'kit.history'),
+    
+    url(r'^location/pending', 'location.pending'),
+    url(r'^location/(\d)/pending', 'location.pending_list'),
 )
