@@ -8,7 +8,7 @@ def kit_ship(request):
 	#if (request.method == 'POST'):
 	#kit = Kit.create(
 		
-	locations = Location.get_objects().order_by('name')
+	locations = Location.objects().order_by('name')
 		
 	return render_to_response('kit-ship.html')
 	
