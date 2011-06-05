@@ -111,7 +111,7 @@ def sms(request):
 				# ok, the kit has arrived
 				state = KitState.objects.get(pk=3)
 				kit_history = KitHistory.objects.create(kit=the_kit, location=the_kit.destination, created=datetime.today(),state=state)
-				response_text = u'Kit %s arrived at %s' % (kit_history.created, kit_id, the_kit.destination)
+				response_text = u'Kit %s arrived at %s' % (kit_id, the_kit.destination)
 				
 	response = HttpResponse(mimetype='text/xml')
 	real_response = u'<Response><Sms>%s</Sms></Response>' % (response_text)
