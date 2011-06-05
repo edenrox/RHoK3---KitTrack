@@ -1,5 +1,5 @@
-<h2>Ship a Kit</h2>
-<form>
+<h2>Update Kit Progress</h2>
+<form action="/kit/{{ kit_id }}/progress" method="post">{% csrf_token %}
  <p><b>Kit ID:</b> {{ kit_id }}</p>
  <div class="input text">
   <label>Date:</label>
