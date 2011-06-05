@@ -1,6 +1,6 @@
 <h2>Ship a Kit</h2>
 <form>
- <p><b>Kit ID:</b> 4721</p>
+ <p><b>Kit ID:</b> {{ kit_id }}</p>
  <div class="input text">
   <label>Date:</label>
   <input type="text" name="date" />
@@ -8,11 +8,17 @@
  <div class="input select">
   <label>Location:</label>
   <select name="location">
+  {% for location in locations %}
+   <option value="{{ location.pk }}">{{ location }}</option>
+  {% endfor %}
   </select>
  </div>
  <div class="input select">
   <label>State:</label>
   <select name="state">
+  {% for state in kit_states %}
+   <option value="{{ state.pk }}">{{ state }}</option>
+  {% endfor %}
   </select>
  </div>
  <div class="submit">

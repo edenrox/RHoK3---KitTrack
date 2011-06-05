@@ -50,3 +50,11 @@ def kit_history(request, kit_id):
 	history = KitHistory.objects.filter(kit=kit_id)
 	
 	return render_to_response('kit-history.html', {'kit_id': kit_id, 'kit_history': history})
+
+def kit_progress(request, kit_id):
+	
+	locations = Location.object.order_by('name')
+	kit_states = KitState.object.order_by('ordinal')
+	
+	return render_to_response('kit-progress.html', {'kit_id': kit_id, 'locations': locations, 'kit_states': kit_states})
+
