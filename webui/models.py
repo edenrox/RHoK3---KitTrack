@@ -31,6 +31,9 @@ class Kit(models.Model):
 	kit_type = models.ForeignKey(KitType)
 	destination = models.ForeignKey(Location)
 	estimated_delivery_date = models.DateTimeField()
+	
+	def __unicode__(self):
+		return u'%d' % (self.pk)
 
 class KitState(models.Model):
 	name = models.CharField(max_length=255)
