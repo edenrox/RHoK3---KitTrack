@@ -73,3 +73,16 @@ def kit_progress(request, kit_id):
 	
 	return render_to_response('kit-progress.html', c)
 
+
+def sms(request):
+	
+	message = request.POST['Body'];
+	
+	
+	response = HttpResponse(mimetype='text/xml')
+	
+	real_response = u'<Response><Sms>Body: %s</Sms></Response>' % (message)
+	response.write(real_response)
+	
+	return response
+

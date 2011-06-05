@@ -23,4 +23,6 @@ urlpatterns = patterns('',
     
     #url(r'^location/pending', 'location.pending'),
     #url(r'^location/(\d)/pending', 'location.pending_list'),
+    
+    url(r'^sms', 'webui.views.sms'),
 )
