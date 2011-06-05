@@ -23,11 +23,22 @@ h1 {
 }
 
 .text label {
-	width: 50px;
+	width: 150px;
 	float: left;
 }
 div.input {
+	width: 300px;
 	padding-bottom: 4px;
 	border-bottom: 1px solid #CCCCCC;
 	padding-top: 4px;
+}
+div.submit {
+	margin-left: 150px;
+}
+
+.footer {
+	border-top: 8px solid #000066;
+	border-bottom: 8px solid #000066;
+	padding-left: 8px;
+	margin-bottom: 4px;
 }
