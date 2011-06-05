@@ -81,8 +81,8 @@ def sms(request):
 	tijuana_id = 14
 	
 	# Get the message body
-	#message = request.POST['Body']
-	message = "kit 7 arrived"
+	message = request.POST['Body']
+	#message = "kit 7 arrived"
 	
 	# parse what command
 	parts = message.strip().split(' ')
