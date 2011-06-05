@@ -7,6 +7,9 @@
  <div class="input select">
   <label>Start Location:</label>
   <select name="start_location">
+  {% for location in locations %}
+   <option value="{{ location.pk }}">{{ location }}</option>
+  {% endfor %}
   </select>
  </div>
  <div class="input text">
@@ -16,6 +19,9 @@
  <div class="input select">
   <label>Destination:</label>
   <select name="destination">
+  {% for location in locations %}
+   <option value="{{ location.pk }}">{{ location }}</option>
+  {% endfor %}
   </select>
  </div>
  <div class="submit">

@@ -5,11 +5,11 @@ from webui.models import *
 
 def kit_ship(request):
 	
-	#locations = Location.get_objects()
-	
-	#if (request.method == 'POST'):
+	if (request.method == 'POST'):
+		#kit = Kit.create(
 		
-	
+	locations = Location.get_objects().order_by('name')
+		
 	return render_to_response('kit-ship.html')
 	
 def kit_track(request):
