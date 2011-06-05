@@ -5,12 +5,22 @@ from webui.models import *
 
 def kit_ship(request):
 	
-	#if (request.method == 'POST'):
-	#kit = Kit.create(
+	if (request.method == 'POST'):
+		# create the kit
+		kit = Kit.create(kit_type = request.POST['kit_type'], estimated_delivery_date = request.POST['estimated_delivery_date'], destination = request.POST['destintion'])
 		
+		# add the kit history for the first one
+		kit_history = KitHistory.create(kit = kit.pk, created = request.POST['date_shipped'], location, state = 1)
+		
+		# redirect to the kit details
+		return redirect(u'/kit/%s/history' % (kit.pk)) 
+	
+	# load the KitTypes and Locations
+	kit_types = KitType.objects.order_by('name')
 	locations = Location.objects.order_by('name')
 		
-	return render_to_response('kit-ship.html', {'locations': locations})
+	# render the template
+	return render_to_response('kit-ship.html', {'kit_types': kit_types, 'locations': locations})
 	
 def kit_track(request):
 	

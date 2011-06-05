@@ -1,5 +1,13 @@
 <h2>Ship a Kit</h2>
-<form>
+<form method="post" action="/kit/ship/">{% csrf_token %}
+ <div class="input select">
+  <label>Kit Type:</label>
+  <select name="kit_type">
+  {% for kit_type in kit_types %}
+   <option value="{{ kit_type.pk }}">{{ kit_type }}</option>
+  {% endfor %}
+  </select>
+ </div>
  <div class="input text">
   <label>Date Shipped:</label>
   <input type="text" name="date_shipped" />
