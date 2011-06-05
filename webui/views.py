@@ -84,7 +84,7 @@ def sms(request):
 	message = "kit intransit"
 	
 	# parse what command
-	parts = message.trim().split(' ')
+	parts = message.strip().split(' ')
 	
 	# the response
 	response_text = ''
