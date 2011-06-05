@@ -80,10 +80,11 @@ def sms(request):
 	tijuana_id = 14
 	
 	# Get the message body
-	message = request.POST['Body']
+	#message = request.POST['Body']
+	message = "kit intransit"
 	
 	# parse what command
-	parts = message.split(' ')
+	parts = message.trim().split(' ')
 	
 	# the response
 	response_text = ''
