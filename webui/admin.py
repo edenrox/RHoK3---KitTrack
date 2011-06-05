@@ -1,4 +1,4 @@
-from webui.models import Location
+from webui.models import Location, KitType, Kit
 from django.contrib import admin
 
 admin.site.register(Location)
