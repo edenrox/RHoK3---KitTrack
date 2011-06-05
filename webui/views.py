@@ -77,14 +77,39 @@ def kit_progress(request, kit_id):
 
 @csrf_exempt
 def sms(request):
+	tijuana_id = 14
 	
-	message = request.POST['Body'];
+	# Get the message body
+	message = request.POST['Body']
 	
+	# parse what command
+	parts = message.split(' ')
 	
+	# the response
+	response_text = ''
+	
+	if (parts[0] == 'kit'):
+		if (parts[1] == 'intransit'):
+			# ok, what packages are in trasit
+			location = Location.objects.get(pk=tijuana_id)
+			kits = Kit.objects.get(destination=location)
+			response_text = u'Kits on the way to %s:\n' % (location, ','.join(kits))
+		if (parts.length):
+			# load the kit
+			kit_id = parts[1]
+			the_kit = Kit.objects.get(pk=kit_id)
+			if (parts[2] == 'where'):
+				# ok, where is the kit
+				kit_history = KitHistory.objects.filter(kit=the_kit).order_by('-date')[0]
+				response_text = 'On %s, kit %s was in %s' % (kit_history.created, kit_id, kit_history.location)
+			if (parts[2] == 'arrived'):
+				# ok, the kit has arrived
+				state = KitState.objects.get(pk=3)
+				kit_history = KitHistory.objects.create(kit=the_kit, location=kit.destination, created=datetime.today())
+				response_text = u'Kit %s arrived at %s' % (kit_history.created, kit_id, location)
+				
 	response = HttpResponse(mimetype='text/xml')
-	
-	real_response = u'<Response><Sms>Body: %s</Sms></Response>' % (message)
+	real_response = u'<Response><Sms>%s</Sms></Response>' % (response_text)
 	response.write(real_response)
-	
 	return response
 
