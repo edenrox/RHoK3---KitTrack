@@ -1,3 +1,4 @@
+import math
 from django.db import models
 
 class KitType(models.Model):
